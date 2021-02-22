@@ -79,8 +79,9 @@ class Director:
         # TODO add letter to buffer
         # if the letter is not a letter or not pushed, don't add it to buffer
         direction = Location(1,0)
-        for i in range(5):
-            self._words.move_words(direction, i)
+        self._words.move_words(direction)
+        # for i in range(5):
+        #     self._words.move_words(direction, i)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In
@@ -105,7 +106,7 @@ class Director:
         # TODO go through each word and call draw_actor()
         self._output_service.clear_screen()
         # self._output_service.draw_actor(self._food)
-        self._output_service.draw_actors(self._words.get_words())
+        self._output_service.draw_actors(self._words.get_word())
         #self._output_service.draw_actor(self._score)
         self._output_service.flush_buffer()
 

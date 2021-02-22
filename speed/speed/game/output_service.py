@@ -51,9 +51,10 @@ class OutputService:
             self (OutputService): An instance of OutputService.
             actors (list): The actors to render.
         """ 
+        #list_words = []
          
-        for n in actors:
-            self.draw_actor(n)
+        for actor in actors:
+            self.draw_actor(actor)
         
     def flush_buffer(self):
         """Renders the screen.

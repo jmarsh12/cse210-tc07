@@ -105,22 +105,22 @@ class Actor:
         """
         self._text = text
 
-    def move_next(self):
-        """Moves the actor to its next position according to its velocity. Will 
-        wrap the position from one side of the screen to the other when it 
-        reaches the boundary in either direction.
+    # def move_next(self):
+    #     """Moves the actor to its next position according to its velocity. Will 
+    #     wrap the position from one side of the screen to the other when it 
+    #     reaches the boundary in either direction.
         
-        Args:
-            self (Actor): an instance of Actor.
-        """
-        x1 = self._position.get_x()
-        y1 = self._position.get_y()
-        x2 = self._velocity.get_x()
-        y2 = self._velocity.get_y()
-        x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1)
-        y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1)
-        position = Location(x, y)
-        self._position = position
+    #     Args:
+    #         self (Actor): an instance of Actor.
+    #     """
+    #     x1 = self._position.get_x()
+    #     y1 = self._position.get_y()
+    #     x2 = self._velocity.get_x()
+    #     y2 = self._velocity.get_y()
+    #     x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1)
+    #     y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1)
+    #     position = Location(x, y)
+    #     self._position = position
     
 
     def set_velocity(self, velocity):
