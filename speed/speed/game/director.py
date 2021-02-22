@@ -13,12 +13,12 @@ class Director:
         Controller
 
     Attributes:
-        food (Food): The snake's target.
+        buffer (Buffer): The area that holds and displays the user input.
         input_service (InputService): The input mechanism.
         keep_playing (boolean): Whether or not the game can continue.
         output_service (OutputService): The output mechanism.
         score (Score): The current score.
-        snake (Snake): The player or snake.
+        words (Words): The words that move across the screen.
     """
 
     def __init__(self, input_service, output_service):
@@ -49,11 +49,16 @@ class Director:
             sleep(constants.FRAME_LENGTH)
 
     def _setup(self):
+        self.set_words() = self._words
         # TODO create 5 words and add them to the list
-        pass
+
 
     def _check_offscreen(self):
         # TODO go through each word and see if it's off the screen
+        for i in self.words:
+            if self.words.location == (constants.MAX_X):
+                i = 
+
         # TODO if the word is off the screen, remove from list and create a new one
         pass
 
