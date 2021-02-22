@@ -50,8 +50,6 @@ class Director:
 
     def _setup(self):
         self.set_words() = self._words
-        # TODO create 5 words and add them to the list
-
 
     def _check_offscreen(self):
         # TODO go through each word and see if it's off the screen
@@ -81,7 +79,6 @@ class Director:
             self (Director): An instance of Director.
         """
         # input_service.get_letter()
-        # TODO add letter to buffer
         # if the letter is not a letter or not pushed, don't add it to buffer
         direction = self._input_service.get_direction()
         self._snake.move_head(direction)
