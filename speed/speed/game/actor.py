@@ -1,6 +1,6 @@
 import random
 from game import constants
-from game.point import Point
+from game.location import Location
 
 class Actor:
     """A visible, moveable thing that participates in the game. The responsibility of Actor is to keep track of its appearance, position
@@ -11,8 +11,8 @@ class Actor:
 
     Attributes:
         _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
+        _position (Location): The actor's position in 2d space.
+        _velocity (Location): The actor's speed and direction.
     """
 
     def __init__(self):
@@ -22,12 +22,12 @@ class Actor:
             self (Actor): an instance of Actor.
         """
         self._text = ""
-        self._lines = [Point(0, 0), Point(0, 0), Point(0, 0), Point(0, 0), Point(0, 0)]
+        self._lines = [Location(0, 3), Location(0, 5), Location(0, 7), Location(0, 9), Location(0, 11)]
         # TODO find better way to space out lines
-        self._velocity = Point(0, 0)
-        self._position = Point(0,0)
+        self._velocity = Location(0, 1)
+        self._position = Location(0, 0)
 
-    def get_position(self, index):
+    def get_location(self, index):
         """Gets the actor's position in 2d space.
 
         Args:
@@ -35,7 +35,7 @@ class Actor:
             index (int): index of line to get position of
 
         Returns:
-            Point: The actor's position in 2d space.
+            Location: The actor's position in 2d space.
         """
         for line in range(len(self._lines)):
             if index == line:
@@ -60,7 +60,7 @@ class Actor:
             self (Actor): an instance of Actor.
 
         Returns:
-            Point: The actor's speed and direction.
+            Location: The actor's speed and direction.
         """
         return self._velocity
 
@@ -80,15 +80,15 @@ class Actor:
             y2 = self._velocity.get_y()
             x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1)
             # y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1)
-            position = Point(x, y)
+            position = Location(x, y)
             self._lines[line] = position
 
-    def set_position(self, position):
+    def set_location(self, location):
         """Updates the actor's position to the given one.
 
         Args:
             self (Actor): An instance of Actor.
-            position (Point): The given position.
+            position (Location): The given position.
         """
         self._position = position
 
@@ -106,6 +106,6 @@ class Actor:
 
         Args:
             self (Actor): An instance of Actor.
-            velocity (Point): The given velocity.
+            velocity (Location): The given velocity.
         """
         self._velocity = velocity
