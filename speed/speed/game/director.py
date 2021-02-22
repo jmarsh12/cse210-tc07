@@ -49,7 +49,7 @@ class Director:
             sleep(constants.FRAME_LENGTH)
 
     def _setup(self):
-        self.set_words() = self._words
+        self._words = self.words.set_words()
 
     def _check_offscreen(self):
         # TODO go through each word and see if it's off the screen
