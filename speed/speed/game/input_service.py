@@ -1,4 +1,5 @@
 import sys
+from game.location import Location
 from asciimatics.event import KeyboardEvent
 
 class InputService:
@@ -17,6 +18,7 @@ class InputService:
         Args:
             self (InputService): An instance of InputService.
         """
+        self._direction = Location(1, 0)
         self._screen = screen
         
     def get_letter(self):
