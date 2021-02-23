@@ -10,9 +10,9 @@ class Words(Actor):
         self._new_words = []
         self.set_words()
         self._segments = []
-        self._word = ""
-        self.set_word()
-        self.array_seg = []
+        #self._word = ""
+        #self.set_word()
+        #self.array_seg = []
         self._reset()
         
         
@@ -89,7 +89,7 @@ class Words(Actor):
         segment.set_text(text)
         segment.set_position(position)
         segment.set_velocity(velocity)
-        self.array_seg.append(segment.get_text())
+        #self.array_seg.append(segment.get_text())
         self._segments.append(segment)
 
 
@@ -97,7 +97,7 @@ class Words(Actor):
         x = 1
         
         for n in range(len(self._new_words)):
-            y = random.randint(1, constants.MAX_Y - 5)
+            y = random.randint(2, constants.MAX_Y - 2)
             w_reverse = ""
             for char in self._new_words[n]:
                 w_reverse = char + w_reverse

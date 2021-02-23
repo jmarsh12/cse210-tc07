@@ -47,15 +47,22 @@ class Director:
             self._do_updates()
             self._do_outputs()
             sleep(constants.FRAME_LENGTH)
+            if self._check_offscreen():
+                self._setup()
 
     def _setup(self):
         # TODO create 5 words and add them to the list
-        pass
+        self._words._new_words.clear()
+        self._words._segments.clear()
+        self._words = Words()
 
     def _check_offscreen(self):
         # TODO go through each word and see if it's off the screen
         # TODO if the word is off the screen, remove from list and create a new one
-        pass
+        seg = self._words.get_segments()
+        if seg[-1]._position.get_x() == (constants.MAX_X - 3):
+            return True
+        return False
 
     def _check_matches(self):
         # TODO check if the buffer matches any of the words
@@ -105,9 +112,10 @@ class Director:
         # TODO draw actor: buffer
         # TODO go through each word and call draw_actor()
         self._output_service.clear_screen()
-        # self._output_service.draw_actor(self._food)
-        self._output_service.draw_actors(self._words.get_segments())
+        #self._output_service.draw_actor(self._buffer)
         #self._output_service.draw_actor(self._score)
+        self._output_service.draw_actors(self._words.get_segments())
+        
         self._output_service.flush_buffer()
 
     # def _handle_body_collision(self):
