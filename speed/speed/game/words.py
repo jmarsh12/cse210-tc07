@@ -59,25 +59,7 @@ class Words(Actor):
 
             segment.move_next()     
         
-        # count = len(self._new_words[i]) - 1
-        # for n in range(count, -1 , -1):
-        #     segment = self._segments[n]
-        #     if n > 0:
-        #         leader = self._segments[n - 1]
-        #         velocity = leader.get_velocity()
-        #         segment.set_velocity(velocity)
-        #     else:
-        #         segment.set_velocity(direction)
-
-            # word = self._new_words[i][n:n+1]
-            # if n > 0:
-            #     leader = self._new_words[i][n-1:n]
-            #     velocity = leader.get_velocity()
-            #     word.set_velocity(velocity)
-            # else:
-            #     word.set_velocity(direction)
-
-            segment.move_next()       
+          
     
     def _add_segment(self, text, position, velocity):
         """Adds a new segment to the snake using the given text, position and velocity.
