@@ -72,4 +72,4 @@ class Location:
         y = self._y * -1
         return Location(x, y)
 
-    
+   

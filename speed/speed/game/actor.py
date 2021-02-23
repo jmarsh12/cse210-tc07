@@ -11,8 +11,8 @@ class Actor:
 
     Attributes:
         _text (string): The textual representation of the actor.
-        _position (Point): The actor's position in 2d space.
-        _velocity (Point): The actor's speed and direction.
+        _position (Location): The actor's position in 2d space.
+        _velocity (Location): The actor's speed and direction.
     """
 
     def __init__(self):
@@ -28,13 +28,14 @@ class Actor:
         self._position = Location(0,0)
 
     def get_position(self):
+
         """Gets the actor's position in 2d space.
         
         Args:
             self (Actor): an instance of Actor.
 
         Returns:
-            Point: The actor's position in 2d space.
+            Location: The actor's position in 2d space.
         """
         return self._position
 
@@ -56,7 +57,7 @@ class Actor:
             self (Actor): an instance of Actor.
 
         Returns:
-            Point: The actor's speed and direction.
+            Location: The actor's speed and direction.
         """
         return self._velocity
 
@@ -68,6 +69,7 @@ class Actor:
         Args:
             self (Actor): an instance of Actor.
         """
+
         x1 = self._position.get_x()
         y1 = self._position.get_y()
         x2 = self._velocity.get_x()
@@ -78,23 +80,14 @@ class Actor:
         y = 1 + (y1 + y2 - 1)
         position = Location(x, y)
         self._position = position
-        # for line in range(len(self._lines)):
-        #     x1 = self._position.get_x()
-        #     y1 = self._position.get_y()
-        #     # TODO: REVIEW; do we need the 'y' coordinates here since the words only move horizontally?
-        #     x2 = self._velocity.get_x()
-        #     y2 = self._velocity.get_y()
-        #     x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1)
-        #     # y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1)
-        #     position = Location(x, y)
-        #     self._lines[line] = position
+       
 
-    def set_position(self, position):
+    def set_location(self, location):
         """Updates the actor's position to the given one.
 
         Args:
             self (Actor): An instance of Actor.
-            position (Point): The given position.
+            position (Location): The given position.
         """
         self._position = position
 
@@ -130,6 +123,6 @@ class Actor:
 
         Args:
             self (Actor): An instance of Actor.
-            velocity (Point): The given velocity.
+            velocity (Location): The given velocity.
         """
         self._velocity = velocity

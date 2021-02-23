@@ -10,11 +10,12 @@ class Words(Actor):
         self._new_words = []
         self.set_words()
         self._segments = []
+
         #self._word = ""
         #self.set_word()
         #self.array_seg = []
         self._reset()
-        
+
         
     def display(self):
         print(self._words)
@@ -26,6 +27,7 @@ class Words(Actor):
             number = random.randint(0,9885)
             index.append(number)
             self._new_words.append(self._words[number])
+
 
     def set_word(self):
         number = random.randint(0, 9885)
@@ -47,12 +49,14 @@ class Words(Actor):
         count -= 1
         for n in range(count, -1, -1):
             segment = self._segments[n]   
+
             if n > 0:
                 leader = self._segments[n - 1]
                 velocity = leader.get_velocity()
                 segment.set_velocity(velocity)
             else:
                 segment.set_velocity(direction)
+
             segment.move_next()     
         
         # count = len(self._new_words[i]) - 1
@@ -64,7 +68,6 @@ class Words(Actor):
         #         segment.set_velocity(velocity)
         #     else:
         #         segment.set_velocity(direction)
-
 
             # word = self._new_words[i][n:n+1]
             # if n > 0:
