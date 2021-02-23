@@ -64,7 +64,7 @@ class Director:
 
         # TODO if the word is off the screen, remove from list and create a new one
         seg = self._words.get_segments()
-        if seg[-1]._position.get_x() == (constants.MAX_X - 3):
+        if seg[-1]._position.get_x() == (constants.MAX_X - 1):
             return True
         return False
 
