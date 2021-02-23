@@ -3,8 +3,6 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from asciimatics.screen import Screen 
 
-from game.words import Words
-
 def main(screen):
 
     input_service = InputService(screen)
