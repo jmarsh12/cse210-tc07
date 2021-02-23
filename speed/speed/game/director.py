@@ -60,9 +60,7 @@ class Director:
 
     def _check_offscreen(self):
         # TODO go through each word and see if it's off the screen
-        for i in self.words:
-            if self.words.location == (constants.MAX_X):
-                i = 
+        
 
         # TODO if the word is off the screen, remove from list and create a new one
         seg = self._words.get_segments()
