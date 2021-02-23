@@ -79,9 +79,10 @@ class Words(Actor):
 
 
     def _reset(self):
-        x = 1
+        
         
         for n in range(len(self._new_words)):
+            x = random.randint(1, 10)
             y = random.randint(2, constants.MAX_Y - 2)
             w_reverse = ""
             for char in self._new_words[n]:
