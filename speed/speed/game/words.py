@@ -41,17 +41,19 @@ class Words(Actor):
         return self._new_words
 
     def move_words(self, direction):
+        count = 0
         for i in range(len(self._new_words)):
-            count = len(self._new_words[i]) - 1
-            for n in range(count, -1, -1):
-                segment = self._segments[n]   
-                if n > 0:
-                    leader = self._segments[n - 1]
-                    velocity = leader.get_velocity()
-                    segment.set_velocity(velocity)
-                else:
-                    segment.set_velocity(direction)
-                segment.move_next()     
+            count += len(self._new_words[i])
+        count -= 1
+        for n in range(count, -1, -1):
+            segment = self._segments[n]   
+            if n > 0:
+                leader = self._segments[n - 1]
+                velocity = leader.get_velocity()
+                segment.set_velocity(velocity)
+            else:
+                segment.set_velocity(direction)
+            segment.move_next()     
         
         # count = len(self._new_words[i]) - 1
         # for n in range(count, -1 , -1):
@@ -95,7 +97,7 @@ class Words(Actor):
         x = 1
         
         for n in range(len(self._new_words)):
-            y = random.randint(1, constants.MAX_Y - 2)
+            y = random.randint(1, constants.MAX_Y - 5)
             w_reverse = ""
             for char in self._new_words[n]:
                 w_reverse = char + w_reverse
