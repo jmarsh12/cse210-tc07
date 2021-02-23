@@ -6,9 +6,6 @@ from asciimatics.screen import Screen
 from game.words import Words
 
 def main(screen):
-    #words = Words()
-    #rint(words.display())
-    #print(words.get_words())
 
     input_service = InputService(screen)
     output_service = OutputService(screen)
