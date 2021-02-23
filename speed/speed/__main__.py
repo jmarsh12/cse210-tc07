@@ -3,7 +3,13 @@ from game.input_service import InputService
 from game.output_service import OutputService
 from asciimatics.screen import Screen 
 
+from game.words import Words
+
 def main(screen):
+    #words = Words()
+    #rint(words.display())
+    #print(words.get_words())
+
     input_service = InputService(screen)
     output_service = OutputService(screen)
     director = Director(input_service, output_service)

@@ -1,40 +1,75 @@
-from game.buffer import Buffer
-from game.score import Score
-
-
 class Location:
 
     def __init__(self, x, y):
-        """
-        The constructor method.
+        """The class constructor.
+        
+        Args:
+            self (Point): An instance of Point.
+            x (integer): A horizontal distance.
+            y (integer): A vertical distance.
         """
         self._x = x
         self._y = y
-        self._buffer_pos = (55, 15)
-        self._score_pos = (5, 0)
-        self._word_x = x
-        self._word_y = y
 
-    def word_position(self, other):
+    def add(self, other):
+        """Gets a new point that is the sum of this and the given one.
+
+        Args:
+            self (Point): An instance of Point.
+            other (Point): The Point to add.
+
+        Returns:
+            Point: A new Point that is the sum.
         """
-        Defines the position for the words and moves them across the screen.
-        """
-        x = self._word_x + other.get_x()
-        y = self._word_y
+        x = self._x + other.get_x()
+        y = self._y + other.get_y()
         return Location(x, y)
 
-        pass
+    def equals(self, other):
+        """Whether or not this Point is equal to the given one.
+
+        Args:
+            self (Point): An instance of Point.
+            other (Point): The Point to compare.
+
+        Returns: 
+            boolean: True if both x and y are equal; false if otherwise.
+        """
+        return self._x == other.get_x() and self._y == other.get_y()
 
     def get_x(self):
-        """
-        Returns the x value.
+        """Gets the horizontal distance.
+        
+        Args:
+            self (Point): An instance of Point.
+            
+        Returns:
+            integer: The horizontal distance.
         """
         return self._x
 
     def get_y(self):
-        """
-        Returns the y value.
+        """Gets the vertical distance.
+        
+        Args:
+            self (Point): An instance of Point.
+            
+        Returns:
+            integer: The vertical distance.
         """
         return self._y
 
-    pass
+    def reverse(self):
+        """Gets a new Point that is the reverse of this one.
+        
+        Args:
+            self (Point): An instance of Point.
+            
+        Returns:
+            Point: A new Point that is reversed.
+        """
+        x = self._x * -1
+        y = self._y * -1
+        return Location(x, y)
+
+   
