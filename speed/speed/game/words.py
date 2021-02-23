@@ -96,6 +96,10 @@ class Words(Actor):
         
         for n in range(len(self._new_words)):
             y = random.randint(1, constants.MAX_Y - 2)
+            w_reverse = ""
+            for char in self._new_words[n]:
+                w_reverse = char + w_reverse
+            self._new_words[n] = w_reverse
             for i in range(len(self._new_words[n])):
                 text = self._new_words[n][i:i+1]
                 position = Location(x - i, y)
